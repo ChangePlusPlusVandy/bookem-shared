@@ -15,5 +15,11 @@
   "bugs": {
     "url": "https://github.com/ChangePlusPlusVandy/bookem-shared/issues"
   },
-  "homepage": "https://github.com/ChangePlusPlusVandy/bookem-shared#readme"
+  "homepage": "https://github.com/ChangePlusPlusVandy/bookem-shared#readme",
+  "devDependencies": {
+    "prettier": "2.8.2"
+  },
+  "dependencies": {
+    "mongoose": "^6.8.3"
+  }
 }
