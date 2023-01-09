@@ -24,7 +24,6 @@ const VolunteerLogSchema = new mongoose.Schema<VolunteerLogData>(
   }
 );
 
-export default mongoose.model<VolunteerLogData>(
-  'VolunteerLog',
-  VolunteerLogSchema
-);
+export const VolunteerLog =
+  mongoose.models.VolunteerLog ||
+  mongoose.model<VolunteerLogData>('VolunteerLog', VolunteerLogSchema);
