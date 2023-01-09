@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-export interface UserData extends mongoose.Document {
+export interface UserData {
   _id: mongoose.Types.ObjectId;
   name: string;
   email: string;
