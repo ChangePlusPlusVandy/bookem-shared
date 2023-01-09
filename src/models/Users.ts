@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
+import { UserData } from '../types/database';
 
 // UserSchema describes what our documents should look like in our User collections
-const UserSchema = new mongoose.Schema(
+const UserSchema = new mongoose.Schema<UserData>(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
@@ -24,4 +25,5 @@ const UserSchema = new mongoose.Schema(
   }
 );
 
-export default mongoose.models.User || mongoose.model('User', UserSchema);
+export default mongoose.models.User ||
+  mongoose.model<UserData>('User', UserSchema);

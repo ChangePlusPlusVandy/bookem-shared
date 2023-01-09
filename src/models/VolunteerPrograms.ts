@@ -1,7 +1,8 @@
 import mongoose from 'mongoose';
+import { VolunteerProgramData } from '../types/database';
 
 // VolunteerProgramSchema describes what our documents should look like in our VolunteerProgram collections
-const VolunteerProgramSchema = new mongoose.Schema(
+const VolunteerProgramSchema = new mongoose.Schema<VolunteerProgramData>(
   {
     name: { type: String, required: true },
     description: { type: String, required: true },
@@ -18,4 +19,7 @@ const VolunteerProgramSchema = new mongoose.Schema(
 );
 
 export default mongoose.models.VolunteerProgram ||
-  mongoose.model('VolunteerProgram', VolunteerProgramSchema);
+  mongoose.model<VolunteerProgramData>(
+    'VolunteerProgram',
+    VolunteerProgramSchema
+  );
