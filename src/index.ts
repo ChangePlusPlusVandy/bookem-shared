@@ -1,5 +1,5 @@
 export * as database from './types/database';
-export * as Users from './models/Users';
-export * as VolunteerLogs from './models/VolunteerLogs';
-export * as VOlunteerProgramApplications from './models/VolunteerProgramApplications';
-export * as VolunteerPrograms from './models/VolunteerPrograms';
+export * as UserSchema from './models/Users';
+export * as VolunteerLogSchema from './models/VolunteerLogs';
+export * as VolunteerProgramApplicationSchema from './models/VolunteerProgramApplications';
+export * as VolunteerProgramSchema from './models/VolunteerPrograms';
