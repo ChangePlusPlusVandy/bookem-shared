@@ -18,8 +18,7 @@ const VolunteerProgramSchema = new mongoose.Schema<VolunteerProgramData>(
   }
 );
 
-export const VolunteerProgram =
-  mongoose.models.VolunteerProgram ||
+export default mongoose.models.VolunteerProgram ||
   mongoose.model<VolunteerProgramData>(
     'VolunteerProgram',
     VolunteerProgramSchema
