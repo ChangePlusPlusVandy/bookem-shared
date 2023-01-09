@@ -25,4 +25,7 @@ const VolunteerProgramApplicationSchema =
     }
   );
 
-export default VolunteerProgramApplicationSchema;
+export default mongoose.model<VolunteerProgramApplicationData>(
+  'VolunteerProgramApplication',
+  VolunteerProgramApplicationSchema
+);

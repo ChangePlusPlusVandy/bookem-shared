@@ -1,4 +1,4 @@
 export * as Users from './Users';
-export * as VolunteerLogSchema from './VolunteerLogs';
-export * as VolunteerProgramApplicationSchema from './VolunteerProgramApplications';
-export * as VolunteerProgramSchema from './VolunteerPrograms';
+export * as VolunteerLogs from './VolunteerLogs';
+export * as VolunteerProgramApplications from './VolunteerProgramApplications';
+export * as VolunteerPrograms from './VolunteerPrograms';
