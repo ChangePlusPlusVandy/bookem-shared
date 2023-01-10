@@ -12,12 +12,12 @@ export interface UserData {
   sourceHeardFrom: string;
   ethnicity: string;
   gender: string;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 export interface QueriedUserData extends UserData {
   _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface VolunteerLogData {
@@ -28,23 +28,23 @@ export interface VolunteerLogData {
   userId: mongoose.Types.ObjectId;
   feedback?: string;
   numBooks?: number;
-  createdAt: Date;
 }
 
 export interface QueriedVolunteerLogData extends VolunteerLogData {
   _id: mongoose.Types.ObjectId;
+  createdAt: Date;
 }
 
 export interface VolunteerProgramApplicationData {
   userId: mongoose.Types.ObjectId;
   programId: mongoose.Types.ObjectId;
   formData: mongoose.Schema.Types.Mixed;
-  createdAt: Date;
 }
 
 export interface QueriedVolunteerProgramApplicationData
   extends VolunteerProgramApplicationData {
   _id: mongoose.Types.ObjectId;
+  createdAt: Date;
 }
 
 export interface VolunteerLogData {
@@ -55,11 +55,11 @@ export interface VolunteerLogData {
   userId: mongoose.Types.ObjectId;
   feedback?: string;
   numBooks?: number;
-  createdAt: Date;
 }
 
 export interface QueriedVolunteerLogData extends VolunteerLogData {
   _id: mongoose.Types.ObjectId;
+  createdAt: Date;
 }
 
 export interface VolunteerProgramData {
@@ -67,10 +67,10 @@ export interface VolunteerProgramData {
   description: string;
   schools?: string[];
   programDate: Date;
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {
   _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
 }
