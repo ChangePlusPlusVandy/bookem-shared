@@ -16,6 +16,10 @@ export interface UserData {
   updatedAt: Date;
 }
 
+export interface QueriedUserData extends UserData {
+  _id: mongoose.Types.ObjectId;
+}
+
 export interface VolunteerLogData {
   school?: string;
   teacher?: string;
@@ -25,6 +29,10 @@ export interface VolunteerLogData {
   feedback?: string;
   numBooks?: number;
   createdAt: Date;
+}
+
+export interface QueriedVolunteerLogData extends VolunteerLogData {
+  _id: mongoose.Types.ObjectId;
 }
 
 export interface VolunteerProgramApplicationData {
@@ -34,6 +42,11 @@ export interface VolunteerProgramApplicationData {
   createdAt: Date;
 }
 
+export interface QueriedVolunteerProgramApplicationData
+  extends VolunteerProgramApplicationData {
+  _id: mongoose.Types.ObjectId;
+}
+
 export interface VolunteerLogData {
   school?: string;
   teacher?: string;
@@ -45,6 +58,10 @@ export interface VolunteerLogData {
   createdAt: Date;
 }
 
+export interface QueriedVolunteerLogData extends VolunteerLogData {
+  _id: mongoose.Types.ObjectId;
+}
+
 export interface VolunteerProgramData {
   name: string;
   description: string;
@@ -52,4 +69,8 @@ export interface VolunteerProgramData {
   programDate: Date;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface QueriedVolunteerProgramData extends VolunteerProgramData {
+  _id: mongoose.Types.ObjectId;
 }
