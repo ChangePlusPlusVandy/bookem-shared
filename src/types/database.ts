@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 
 export interface UserData {
-  _id: mongoose.Types.ObjectId;
   name: string;
   email: string;
   password: string;
@@ -18,7 +17,6 @@ export interface UserData {
 }
 
 export interface VolunteerLogData {
-  _id: mongoose.Types.ObjectId;
   school?: string;
   teacher?: string;
   date: Date;
@@ -30,7 +28,6 @@ export interface VolunteerLogData {
 }
 
 export interface VolunteerProgramApplicationData {
-  _id: mongoose.Types.ObjectId;
   userId: mongoose.Types.ObjectId;
   programId: mongoose.Types.ObjectId;
   formData: mongoose.Schema.Types.Mixed;
@@ -38,7 +35,6 @@ export interface VolunteerProgramApplicationData {
 }
 
 export interface VolunteerLogData {
-  _id: mongoose.Types.ObjectId;
   school?: string;
   teacher?: string;
   date: Date;
@@ -50,7 +46,6 @@ export interface VolunteerLogData {
 }
 
 export interface VolunteerProgramData {
-  _id: mongoose.Types.ObjectId;
   name: string;
   description: string;
   schools?: string[];
