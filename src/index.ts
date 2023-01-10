@@ -1,2 +1,5 @@
 export * as database from './types/database';
-export * as models from './models';
+export * from './models/Users';
+export * from './models/VolunteerLogs';
+export * from './models/VolunteerProgramApplications';
+export * from './models/VolunteerPrograms';
