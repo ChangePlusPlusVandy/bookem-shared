@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import createModel from '../../lib/createModel';
 import { VolunteerProgramApplicationData } from '../types/database';
 
 // VolunteerProgramApplicationSchema describes what our documents should look like in our VolunteerProgramApplication collections
@@ -26,7 +25,8 @@ const VolunteerProgramApplicationSchema =
     }
   );
 
-export default createModel<VolunteerProgramApplicationData>(
-  'VolunteerProgramApplication',
-  VolunteerProgramApplicationSchema
-);
+export default mongoose.models.VolunteerProgramApplication ||
+  mongoose.model<VolunteerProgramApplicationData>(
+    'VolunteerProgramApplication',
+    VolunteerProgramApplicationSchema
+  );

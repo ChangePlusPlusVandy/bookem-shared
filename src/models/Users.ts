@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import createModel from '../../lib/createModel';
 import { UserData } from '../types/database';
 
 // UserSchema describes what our documents should look like in our User collections
@@ -26,4 +25,5 @@ const UserSchema = new mongoose.Schema<UserData>(
   }
 );
 
-export default createModel<UserData>('User', UserSchema);
+export default mongoose.models.User ||
+  mongoose.model<UserData>('User', UserSchema);

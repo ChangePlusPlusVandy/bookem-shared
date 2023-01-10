@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import createModel from '../../lib/createModel';
 import { VolunteerLogData } from '../types/database';
 
 // VolunteerLogSchema describes what our documents should look like in our VolunteerLogs collections
@@ -25,7 +24,5 @@ const VolunteerLogSchema = new mongoose.Schema<VolunteerLogData>(
   }
 );
 
-export default createModel<VolunteerLogData>(
-  'VolunteerLog',
-  VolunteerLogSchema
-);
+export default mongoose.models.VolunteerLog ||
+  mongoose.model<VolunteerLogData>('VolunteerLog', VolunteerLogSchema);
