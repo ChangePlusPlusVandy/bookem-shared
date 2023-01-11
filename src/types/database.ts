@@ -86,11 +86,17 @@ export interface Employee {
   email: string;
   password: string;
   phone: string;
-  status: number;
+  status: EmployeeStatus;
 }
 
 export interface QueriedEmployeeData extends UserData {
   _id: mongoose.Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export enum EmployeeStatus {
+  Forbidden = 'forbbiden',
+  Employee = 'employee',
+  Admin = 'admin',
 }
