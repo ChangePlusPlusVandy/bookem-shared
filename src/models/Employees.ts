@@ -9,8 +9,9 @@ const EmployeeSchema = new mongoose.Schema(
     password: { type: String, required: true },
     phone: { type: String, required: true },
     status: {
-      type: EmployeeStatus,
+      type: String,
       default: EmployeeStatus.Employee,
+      enum: EmployeeStatus,
       required: true,
     },
   },
