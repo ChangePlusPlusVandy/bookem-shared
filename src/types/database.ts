@@ -47,6 +47,12 @@ export interface QueriedVolunteerProgramApplicationData
   createdAt: Date;
 }
 
+export interface QueriedVolunteerProgramApplicationDTO
+  extends QueriedVolunteerProgramApplicationData {
+  user: UserData;
+  program: VolunteerProgramData;
+}
+
 export interface VolunteerLogData {
   school?: string;
   teacher?: string;
@@ -73,4 +79,24 @@ export interface QueriedVolunteerProgramData extends VolunteerProgramData {
   _id: mongoose.Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface Employee {
+  name: string;
+  email: string;
+  password: string;
+  phone: string;
+  status: EmployeeStatus;
+}
+
+export interface QueriedEmployeeData extends UserData {
+  _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export enum EmployeeStatus {
+  Forbidden = 'forbbiden',
+  Employee = 'employee',
+  Admin = 'admin',
 }
