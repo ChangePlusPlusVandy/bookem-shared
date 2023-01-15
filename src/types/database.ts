@@ -49,8 +49,8 @@ export interface QueriedVolunteerProgramApplicationData
 
 export interface QueriedVolunteerProgramApplicationDTO
   extends QueriedVolunteerProgramApplicationData {
-  user: UserData;
-  program: VolunteerProgramData;
+  user: QueriedUserData;
+  program: QueriedVolunteerProgramData;
 }
 
 export interface VolunteerLogData {
