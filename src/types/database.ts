@@ -12,6 +12,7 @@ export interface UserData {
   sourceHeardFrom: string;
   ethnicity: string;
   gender: string;
+  programs: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedUserData extends UserData {
@@ -73,6 +74,7 @@ export interface VolunteerProgramData {
   description: string;
   schools?: string[];
   programDate: Date;
+  users: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {

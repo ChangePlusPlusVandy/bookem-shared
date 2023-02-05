@@ -15,6 +15,12 @@ const UserSchema = new mongoose.Schema<UserData>(
     sourceHeardFrom: { type: String, required: true },
     ethnicity: { type: String, required: true },
     gender: { type: String, required: true },
+    programs: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'VolunteerProgram',
+      },
+    ],
   },
   {
     timestamps: {
