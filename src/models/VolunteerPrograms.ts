@@ -14,6 +14,11 @@ const VolunteerProgramSchema = new mongoose.Schema<VolunteerProgramData>(
         ref: 'User',
       },
     ],
+    category: {
+      type: String,
+      required: true,
+    },
+    hasForm: { type: Boolean, required: true },
   },
   {
     timestamps: {
