@@ -8,17 +8,14 @@ const VolunteerProgramSchema = new mongoose.Schema<VolunteerProgramData>(
     description: { type: String, required: true },
     schools: [{ type: String }],
     programDate: { type: Date, required: true },
+    category: { type: String, required: true },
+    hasForm: { type: Boolean, required: true },
     users: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
       },
     ],
-    category: {
-      type: String,
-      required: true,
-    },
-    hasForm: { type: Boolean, required: true },
   },
   {
     timestamps: {

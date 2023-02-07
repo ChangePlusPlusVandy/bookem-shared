@@ -74,9 +74,9 @@ export interface VolunteerProgramData {
   description: string;
   schools?: string[];
   programDate: Date;
-  users: mongoose.Types.ObjectId[];
   category: string;
   hasForm: boolean;
+  users: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {
