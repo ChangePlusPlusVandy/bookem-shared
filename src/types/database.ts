@@ -6,9 +6,6 @@ export interface UserData {
   password: string;
   phone: string;
   address: string;
-  isVolunteer?: boolean;
-  isDonor?: boolean;
-  isRequester?: boolean;
   sourceHeardFrom: string;
   ethnicity: string;
   gender: string;
