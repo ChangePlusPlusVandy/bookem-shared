@@ -72,7 +72,7 @@ export interface VolunteerProgramData {
   schools?: string[];
   programDate: Date;
   category: string;
-  hasForm: boolean;
+  isOpen: boolean;
   users: mongoose.Types.ObjectId[];
 }
 
