@@ -9,7 +9,12 @@ export interface UserData {
   sourceHeardFrom: string;
   ethnicity: string;
   gender: string;
+  backgroundCheck: {
+    passed: boolean;
+    expirationDate: Date;
+  };
   programs: mongoose.Types.ObjectId[];
+  tags: string[];
 }
 
 export interface QueriedUserData extends UserData {

@@ -11,7 +11,12 @@ const UserSchema = new mongoose.Schema<UserData>(
     address: { type: String, required: true },
     sourceHeardFrom: { type: String, required: true },
     ethnicity: { type: String, required: true },
+    backgroundCheck: {
+      passed: { type: Boolean },
+      expirationDate: { type: Date },
+    },
     gender: { type: String, required: true },
+    tags: [{ type: String, required: true }],
     programs: [
       {
         type: mongoose.Types.ObjectId,
