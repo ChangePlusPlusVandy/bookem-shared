@@ -15,6 +15,7 @@ const UserSchema = new mongoose.Schema<UserData>(
       passed: { type: Boolean },
       expirationDate: { type: Date },
     },
+    userType: { type: String, required: true, default: 'user' },
     gender: { type: String, required: true },
     tags: [{ type: String, required: true }],
     programs: [
