@@ -13,6 +13,7 @@ export interface UserData {
     passed: boolean;
     expirationDate: Date;
   };
+  userType: string;
   programs: mongoose.Types.ObjectId[];
   tags: string[];
 }
@@ -79,6 +80,10 @@ export interface VolunteerProgramData {
   category: string;
   isOpen: boolean;
   users: mongoose.Types.ObjectId[];
+  maxSpot: number;
+  location: string;
+  phone: string;
+  email: string;
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {
