@@ -79,7 +79,7 @@ export interface VolunteerProgramData {
   programDate: Date;
   category: string;
   isOpen: boolean;
-  users: mongoose.Types.ObjectId[];
+  volunteers: mongoose.Types.ObjectId[];
   maxSpot: number;
   location: string;
   phone: string;

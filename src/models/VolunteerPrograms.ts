@@ -14,7 +14,7 @@ const VolunteerProgramSchema = new mongoose.Schema<VolunteerProgramData>(
     location: { type: String, required: true },
     phone: { type: String, required: true },
     email: { type: String, required: true },
-    users: [
+    volunteers: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
