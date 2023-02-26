@@ -11,7 +11,18 @@ const UserSchema = new mongoose.Schema<UserData>(
     address: { type: String, required: true },
     sourceHeardFrom: { type: String, required: true },
     ethnicity: { type: String, required: true },
+    backgroundCheck: {
+      passed: { type: Boolean },
+      expirationDate: { type: Date },
+    },
+
+    // User, exec, etc.
+    userType: { type: String, required: true, default: 'user' },
     gender: { type: String, required: true },
+
+    // equates to categories in the programs - every time a user
+    // signs up for a program, we add the program category to their tags if it’s not already there
+    tags: [{ type: String, required: true }],
     programs: [
       {
         type: mongoose.Types.ObjectId,

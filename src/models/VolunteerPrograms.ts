@@ -9,8 +9,12 @@ const VolunteerProgramSchema = new mongoose.Schema<VolunteerProgramData>(
     schools: [{ type: String }],
     programDate: { type: Date, required: true },
     category: { type: String, required: true },
-    hasForm: { type: Boolean, required: true },
-    users: [
+    isOpen: { type: Boolean, required: true },
+    maxSpot: { type: Number, required: true },
+    location: { type: String, required: true },
+    phone: { type: String, required: true },
+    email: { type: String, required: true },
+    volunteers: [
       {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',

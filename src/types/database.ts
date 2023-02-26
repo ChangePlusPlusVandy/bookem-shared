@@ -9,7 +9,13 @@ export interface UserData {
   sourceHeardFrom: string;
   ethnicity: string;
   gender: string;
+  backgroundCheck: {
+    passed: boolean;
+    expirationDate: Date;
+  };
+  userType: string;
   programs: mongoose.Types.ObjectId[];
+  tags: string[];
 }
 
 export interface QueriedUserData extends UserData {
@@ -72,8 +78,12 @@ export interface VolunteerProgramData {
   schools?: string[];
   programDate: Date;
   category: string;
-  hasForm: boolean;
-  users: mongoose.Types.ObjectId[];
+  isOpen: boolean;
+  volunteers: mongoose.Types.ObjectId[];
+  maxSpot: number;
+  location: string;
+  phone: string;
+  email: string;
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {
