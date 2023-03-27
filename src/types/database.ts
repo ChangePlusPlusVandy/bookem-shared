@@ -92,22 +92,21 @@ export interface QueriedVolunteerProgramData extends VolunteerProgramData {
   updatedAt: Date;
 }
 
-export interface Employee {
+export interface Admin {
   name: string;
   email: string;
   password: string;
   phone: string;
-  status: EmployeeStatus;
+  status: AdminStatus;
 }
 
-export interface QueriedEmployeeData extends UserData {
+export interface QueriedAdminData extends UserData {
   _id: mongoose.Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
 }
 
-export enum EmployeeStatus {
+export enum AdminStatus {
   Forbidden = 'forbbiden',
-  Employee = 'employee',
   Admin = 'admin',
 }
