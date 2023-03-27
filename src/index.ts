@@ -3,4 +3,4 @@ export * from './models/Users';
 export * from './models/VolunteerLogs';
 export * from './models/VolunteerProgramApplications';
 export * from './models/VolunteerPrograms';
-export * from './models/Employees';
+export * from './models/Admins';
