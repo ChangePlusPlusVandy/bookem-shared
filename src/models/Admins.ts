@@ -24,5 +24,7 @@ const AdminSchema = new mongoose.Schema<AdminData>(
   }
 );
 
-export default mongoose.models.Admin ||
+const Admins = mongoose.models.Admin ||
   mongoose.model<AdminData>('Admin', AdminSchema);
+
+export default Admins;
