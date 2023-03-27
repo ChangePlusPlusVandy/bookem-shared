@@ -92,7 +92,7 @@ export interface QueriedVolunteerProgramData extends VolunteerProgramData {
   updatedAt: Date;
 }
 
-export interface Admin {
+export interface AdminData {
   name: string;
   email: string;
   password: string;

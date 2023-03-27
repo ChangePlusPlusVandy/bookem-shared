@@ -1,8 +1,8 @@
 import mongoose from 'mongoose';
-import { Admin, AdminStatus } from '../types/database';
+import { AdminData, AdminStatus } from '../types/database';
 
 // AdminSchema describes what our documents should look like in our Admin collections
-const AdminSchema = new mongoose.Schema(
+const AdminSchema = new mongoose.Schema<AdminData>(
   {
     name: { type: String, required: true },
     email: { type: String, required: true },
@@ -25,4 +25,4 @@ const AdminSchema = new mongoose.Schema(
 );
 
 export default mongoose.models.Admin ||
-  mongoose.model<Admin>('Admin', AdminSchema);
+  mongoose.model<AdminData>('Admin', AdminSchema);
