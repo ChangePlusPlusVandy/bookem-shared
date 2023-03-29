@@ -81,7 +81,12 @@ export interface VolunteerProgramData {
   isOpen: boolean;
   volunteers: mongoose.Types.ObjectId[];
   maxSpot: number;
-  location: string;
+  location: {
+    street: string;
+    city: string;
+    state: string;
+    zip: number;
+  }
   phone: string;
   email: string;
 }
