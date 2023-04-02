@@ -6,5 +6,9 @@ import { VolunteerProgramLocation } from '../types/database';
  * @returns The location in string format
  */
 export const convertLocationToString = (location: VolunteerProgramLocation) => {
-  return `${location.street} ${location.city}, ${location.state} ${location.zip}`;
+  // if at least state or zip is missing, don't include it
+  if (!location.state || !location.zip)
+    return `${location.street} ${location.city}`;
+  else
+    return `${location.street}, ${location.city}, ${location.state} ${location.zip}`;
 };
