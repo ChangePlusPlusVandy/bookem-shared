@@ -89,8 +89,8 @@ export interface VolunteerProgramData {
 export interface VolunteerProgramLocation {
   street: string;
   city: string;
-  state: string;
-  zip: number;
+  state?: string;
+  zip?: number;
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {
