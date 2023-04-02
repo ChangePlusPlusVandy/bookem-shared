@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
 
+// ----------------------- User and Admin-----------------------
 export interface UserData {
   name: string;
   email: string;
@@ -13,87 +14,11 @@ export interface UserData {
     passed: boolean;
     expirationDate: Date;
   };
-  userType: string;
-  programs: mongoose.Types.ObjectId[];
   tags: string[];
+  events: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedUserData extends UserData {
-  _id: mongoose.Types.ObjectId;
-  createdAt: Date;
-  updatedAt: Date;
-}
-
-export interface VolunteerLogData {
-  school?: string;
-  teacher?: string;
-  date: Date;
-  hours: number;
-  userId: mongoose.Types.ObjectId;
-  feedback?: string;
-  numBooks?: number;
-}
-
-export interface QueriedVolunteerLogData extends VolunteerLogData {
-  _id: mongoose.Types.ObjectId;
-  createdAt: Date;
-}
-
-export interface VolunteerProgramApplicationData {
-  userId: mongoose.Types.ObjectId;
-  programId: mongoose.Types.ObjectId;
-  formData: mongoose.Schema.Types.Mixed;
-}
-
-export interface QueriedVolunteerProgramApplicationData
-  extends VolunteerProgramApplicationData {
-  _id: mongoose.Types.ObjectId;
-  createdAt: Date;
-}
-
-export interface QueriedVolunteerProgramApplicationDTO
-  extends QueriedVolunteerProgramApplicationData {
-  user: QueriedUserData;
-  program: QueriedVolunteerProgramData;
-}
-
-export interface VolunteerLogData {
-  school?: string;
-  teacher?: string;
-  date: Date;
-  hours: number;
-  userId: mongoose.Types.ObjectId;
-  feedback?: string;
-  numBooks?: number;
-}
-
-export interface QueriedVolunteerLogData extends VolunteerLogData {
-  _id: mongoose.Types.ObjectId;
-  createdAt: Date;
-}
-
-export interface VolunteerProgramData {
-  name: string;
-  description: string;
-  schools?: string[];
-  programDate: Date;
-  category: string;
-  isOpen: boolean;
-  volunteers: mongoose.Types.ObjectId[];
-  maxSpot: number;
-  location: VolunteerProgramLocation;
-  phone: string;
-  email: string;
-}
-
-export interface VolunteerProgramLocation {
-  street: string;
-  city: string;
-  state?: string;
-  zip?: number;
-}
-
-export interface QueriedVolunteerProgramData extends VolunteerProgramData {
   _id: mongoose.Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
@@ -107,7 +32,7 @@ export interface AdminData {
   status: AdminStatus;
 }
 
-export interface QueriedAdminData extends UserData {
+export interface QueriedAdminData extends AdminData {
   _id: mongoose.Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
@@ -116,4 +41,79 @@ export interface QueriedAdminData extends UserData {
 export enum AdminStatus {
   Forbidden = 'forbbiden',
   Admin = 'admin',
+}
+
+// ----------------------- Volunteer Event -----------------------
+export interface VolunteerEventData {
+  name: string;
+  description: string;
+  startDate: Date;
+  endDate: Date;
+  maxSpot: number;
+  location: VolunteerEventLocation;
+  phone: string;
+  email: string;
+  requireApplication: boolean;
+  volunteers: mongoose.Types.ObjectId[];
+  tags: mongoose.Types.ObjectId[];
+}
+
+export interface QueriedVolunteerEventData extends VolunteerEventData {
+  _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+export interface VolunteerEventLocation {
+  street: string;
+  city: string;
+  state?: string;
+  zip?: number;
+}
+
+// ----------------------- Volunteer Application -----------------------
+export interface VolunteerApplicationData {
+  userId: mongoose.Types.ObjectId;
+  eventId: mongoose.Types.ObjectId;
+  formData: mongoose.Schema.Types.Mixed;
+}
+
+export interface QueriedVolunteerApplicationData
+  extends VolunteerApplicationData {
+  _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+}
+
+export interface QueriedVolunteerApplicationDTO
+  extends QueriedVolunteerApplicationData {
+  user: QueriedUserData;
+  event: QueriedVolunteerEventData;
+}
+
+// ----------------------- Volunteer Log -----------------------
+export interface VolunteerLogData {
+  userId: mongoose.Types.ObjectId;
+  eventId: mongoose.Types.ObjectId;
+  date: Date;
+  hours: number;
+  numBooks?: number;
+  school?: string;
+  teacher?: string;
+  feedback?: string;
+}
+
+export interface QueriedVolunteerLogData extends VolunteerLogData {
+  _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+}
+
+// ----------------------- Tag -----------------------
+export interface TagData {
+  tagName: string;
+}
+
+export interface QueriedTagData extends TagData {
+  _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
 }
