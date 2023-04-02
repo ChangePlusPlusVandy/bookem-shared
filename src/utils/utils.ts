@@ -5,6 +5,6 @@ import { VolunteerProgramLocation } from '../types/database';
  * @param location The location of the program
  * @returns The location in string format
  */
-const convertLocationToString = (location: VolunteerProgramLocation) => {
+export const convertLocationToString = (location: VolunteerProgramLocation) => {
   return `${location.street} ${location.city}, ${location.state} ${location.zip}`;
 };
