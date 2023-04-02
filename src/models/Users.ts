@@ -21,7 +21,7 @@ const UserSchema = new mongoose.Schema<UserData>(
     },
 
     /**
-     * Contains the tags of the programs the user has signed up for
+     * Contains the tags of the events (no duplicates)
      * e.g. ['RIF', 'RFR']
      */
     tags: [{ type: String, required: true }],
@@ -36,7 +36,7 @@ const UserSchema = new mongoose.Schema<UserData>(
     events: [
       {
         type: mongoose.Types.ObjectId,
-        ref: 'VolunteerProgram',
+        ref: 'VolunteerEvents',
       },
     ],
   },
