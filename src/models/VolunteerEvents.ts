@@ -52,7 +52,7 @@ const VolunteerEventSchema = new mongoose.Schema<VolunteerEventData>(
       createdAt: 'createdAt',
       updatedAt: 'updatedAt',
     },
-    collection: 'VolunteerEvents',
+    collection: 'volunteerEvents',
   }
 );
 

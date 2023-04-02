@@ -24,7 +24,7 @@ const VolunteerApplicationSchema =
       timestamps: {
         createdAt: 'createdAt',
       },
-      collection: 'VolunteerApplications',
+      collection: 'volunteerApplications',
     }
   );
 
