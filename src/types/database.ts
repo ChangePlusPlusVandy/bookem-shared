@@ -114,6 +114,4 @@ export interface TagData {
 
 export interface QueriedTagData extends TagData {
   _id: mongoose.Types.ObjectId;
-  createdAt: Date;
-  updatedAt: Date;
 }
