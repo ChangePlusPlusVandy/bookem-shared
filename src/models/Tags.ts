@@ -7,10 +7,6 @@ const TagSchema = new mongoose.Schema<TagData>(
     tagName: { type: String, required: true },
   },
   {
-    timestamps: {
-      createdAt: 'createdAt',
-      updatedAt: 'updatedAt',
-    },
     collection: 'tags',
   }
 );
