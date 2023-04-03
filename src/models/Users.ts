@@ -4,6 +4,9 @@ import { UserData } from '../types/database';
 // UserSchema describes what our documents should look like in our User collections
 const UserSchema = new mongoose.Schema<UserData>(
   {
+    /**
+     * Basic user information
+     */
     name: { type: String, required: true },
     email: { type: String, required: true },
     password: { type: String, required: true },
@@ -11,22 +14,29 @@ const UserSchema = new mongoose.Schema<UserData>(
     address: { type: String, required: true },
     sourceHeardFrom: { type: String, required: true },
     ethnicity: { type: String, required: true },
+    gender: { type: String, required: true },
     backgroundCheck: {
       passed: { type: Boolean },
       expirationDate: { type: Date },
     },
 
-    // User, exec, etc.
-    userType: { type: String, required: true, default: 'user' },
-    gender: { type: String, required: true },
-
-    // equates to categories in the programs - every time a user
-    // signs up for a program, we add the program category to their tags if it’s not already there
+    /**
+     * Contains the tags of the events (no duplicates)
+     * e.g. ['RIF', 'RFR']
+     */
     tags: [{ type: String, required: true }],
-    programs: [
+
+    /**
+     * Contains the _ids of the events the user has signed up for
+     * e.g. [
+     *  '5f9f5b9b0e1c9c0b3c8b4b5a',
+     *  '5f9f5b9b0e1c9c0b3c8b4b5b'
+     * ]
+     */
+    events: [
       {
         type: mongoose.Types.ObjectId,
-        ref: 'VolunteerProgram',
+        ref: 'VolunteerEvents',
       },
     ],
   },
