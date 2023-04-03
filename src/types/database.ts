@@ -59,8 +59,12 @@ export interface VolunteerEventData {
   tags: mongoose.Types.ObjectId[];
 }
 
-export interface QueriedVolunteerEventData extends VolunteerEventData {
+export interface QueriedVolunteerEventData
+  extends Omit<VolunteerEventData, 'program' | 'volunteers' | 'tags'> {
   _id: mongoose.Types.ObjectId;
+  program: QueriedTagData;
+  volunteers: QueriedUserData[];
+  tags: QueriedTagData[];
   createdAt: Date;
   updatedAt: Date;
 }
