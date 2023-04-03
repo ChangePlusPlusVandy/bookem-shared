@@ -11,7 +11,7 @@ const TagSchema = new mongoose.Schema<TagData>(
       createdAt: 'createdAt',
       updatedAt: 'updatedAt',
     },
-    collection: 'Tags',
+    collection: 'tags',
   }
 );
 
