@@ -53,6 +53,7 @@ export interface VolunteerEventData {
   location: VolunteerEventLocation;
   phone: string;
   email: string;
+  program: mongoose.Types.ObjectId;
   requireApplication: boolean;
   volunteers: mongoose.Types.ObjectId[];
   tags: mongoose.Types.ObjectId[];

@@ -22,6 +22,11 @@ const VolunteerEventSchema = new mongoose.Schema<VolunteerEventData>(
     email: { type: String, required: true },
 
     /**
+     * The program that this event is under, represented by a tag
+     */
+    program: { type: mongoose.Schema.Types.ObjectId, ref: 'Tag' },
+
+    /**
      * Whether this event requires an application
      */
     requireApplication: { type: Boolean, required: true },
