@@ -84,8 +84,9 @@ export interface VolunteerApplicationData {
 }
 
 export interface QueriedVolunteerApplicationData
-  extends VolunteerApplicationData {
+  extends Omit<VolunteerApplicationData, 'formData'> {
   _id: mongoose.Types.ObjectId;
+  formData: any;
   createdAt: Date;
 }
 
