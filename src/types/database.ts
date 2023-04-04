@@ -81,6 +81,7 @@ export interface VolunteerApplicationData {
   userId: mongoose.Types.ObjectId;
   eventId: mongoose.Types.ObjectId;
   formData: mongoose.Schema.Types.Mixed;
+  status: ApplicationStatus;
 }
 
 export interface QueriedVolunteerApplicationData
@@ -94,6 +95,12 @@ export interface QueriedVolunteerApplicationDTO
   extends QueriedVolunteerApplicationData {
   user: QueriedUserData;
   event: QueriedVolunteerEventData;
+}
+
+export enum ApplicationStatus {
+  Pending = 'pending',
+  Approved = 'approved',
+  Rejected = 'rejected',
 }
 
 // ----------------------- Volunteer Log -----------------------

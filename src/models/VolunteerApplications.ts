@@ -19,6 +19,8 @@ const VolunteerApplicationSchema =
       },
       // the form data the user submitted
       formData: { type: mongoose.Schema.Types.Mixed, required: true },
+      // the status of the application
+      status: { type: String },
     },
     {
       timestamps: {
