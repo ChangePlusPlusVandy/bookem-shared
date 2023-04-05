@@ -7,20 +7,10 @@ export interface UserData {
   password: string;
   phone: string;
   address: string;
-  birthday: string;
-  emergencyName: string;
-  emergencyPhone: string;
-  emergencyRelationship: string;
-  members?: string[];
-  volunteerReason: string;
-  occupation: string;
-  occupationTitle: string;
-  occupationOrg: string;
-  joinNewsletter: boolean;
   sourceHeardFrom: string;
-  ethnicity?: string;
-  gender?: string;
-  backgroundCheck?: {
+  ethnicity: string;
+  gender: string;
+  backgroundCheck: {
     passed: boolean;
     expirationDate: Date;
   };
