@@ -29,6 +29,7 @@ const UserSchema = new mongoose.Schema<UserData>(
       passed: { type: Boolean },
       expirationDate: { type: Date },
     },
+    profileImgUrl: { type: String },
 
     /**
      * Contains the tags of the events (no duplicates)

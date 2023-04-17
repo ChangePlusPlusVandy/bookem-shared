@@ -24,6 +24,7 @@ export interface UserData {
     passed: boolean;
     expirationDate: Date;
   };
+  profileImgUrl?: string;
   tags: string[];
   events: mongoose.Types.ObjectId[];
 }
