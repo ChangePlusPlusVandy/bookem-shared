@@ -37,8 +37,8 @@ export interface QueriedUserData extends UserData {
 
 export interface QueriedUserDTO
   extends Omit<QueriedUserData, 'programs' | 'events'> {
-  events: QueriedVolunteerEventData;
-  programs: QueriedVolunteerProgramData;
+  events: QueriedVolunteerEventData[];
+  programs: QueriedVolunteerProgramData[];
 }
 
 export interface AdminData {
