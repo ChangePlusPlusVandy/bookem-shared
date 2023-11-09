@@ -35,6 +35,12 @@ export interface QueriedUserData extends UserData {
   updatedAt: Date;
 }
 
+export interface QueriedUserDTO
+  extends Omit<QueriedUserData, 'programs' | 'events'> {
+  events: QueriedVolunteerEventData;
+  programs: QueriedVolunteerProgramData;
+}
+
 export interface AdminData {
   firstName: string;
   lastName: string;
@@ -152,8 +158,11 @@ export interface VolunteerProgramData {
   events: mongoose.Types.ObjectId[];
 }
 
-export interface QueriedVolunteerProgramData
-  extends Omit<VolunteerProgramData, 'events'> {
+export interface QueriedVolunteerProgramData extends VolunteerProgramData {
   _id: mongoose.Types.ObjectId;
+}
+
+export interface QueriedVolunteerProgramDTO
+  extends Omit<VolunteerProgramData, 'events'> {
   events: QueriedVolunteerEventData[];
 }

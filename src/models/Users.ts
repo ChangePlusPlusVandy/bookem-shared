@@ -44,6 +44,12 @@ const UserSchema = new mongoose.Schema<UserData>(
         ref: 'VolunteerEvents',
       },
     ],
+    programs: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'VolunteerPrograms',
+      },
+    ],
   },
   {
     timestamps: {
