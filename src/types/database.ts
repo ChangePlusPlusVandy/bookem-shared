@@ -1,5 +1,11 @@
 import mongoose from 'mongoose';
 
+/**
+ * Data: Fits the model definition
+ * QueriedData: Contains Mongo auto-generated values like _id, createdAt, updatedAt
+ * QueriedDTO: Contains populated fields. For example: array of user_id -> array of user objects
+ */
+
 // ----------------------- User and Admin-----------------------
 export interface UserData {
   name: string;
@@ -86,7 +92,7 @@ export interface QueriedVolunteerEventData extends VolunteerEventData {
 // Contains populated users, program, tags
 export interface QueriedVolunteerEventDTO
   extends Omit<QueriedVolunteerEventData, 'program' | 'volunteers' | 'tags'> {
-  program: QueriedTagData;
+  program: QueriedVolunteerProgramData;
   volunteers: QueriedUserData[];
   tags: QueriedTagData[];
 }
@@ -154,15 +160,19 @@ export interface QueriedTagData extends TagData {
 // --------------------- Program ----------------------
 export interface VolunteerProgramData {
   name: string;
-  description: string;
+  description?: string;
   events: mongoose.Types.ObjectId[];
+  volunteers: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {
   _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface QueriedVolunteerProgramDTO
-  extends Omit<VolunteerProgramData, 'events'> {
+  extends Omit<VolunteerProgramData, 'events' | 'volunteers'> {
   events: QueriedVolunteerEventData[];
+  volunteers: QueriedUserData[];
 }

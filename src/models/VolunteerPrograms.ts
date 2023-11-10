@@ -19,15 +19,24 @@ const VolunteerProgramSchema = new mongoose.Schema<VolunteerProgramData>(
         ref: 'VolunteerEvents',
       },
     ],
+    volunteers: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'Users',
+      },
+    ],
   },
 
   {
-    collection: 'programs',
+    collection: 'volunteerPrograms',
   }
 );
 
 const VolunteerPrograms =
   mongoose.models.VolunteerProgram ||
-  mongoose.model<VolunteerProgramData>('Program', VolunteerProgramSchema);
+  mongoose.model<VolunteerProgramData>(
+    'VolunteerProgram',
+    VolunteerProgramSchema
+  );
 
 export default VolunteerPrograms;
