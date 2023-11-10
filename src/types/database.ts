@@ -25,14 +25,20 @@ export interface UserData {
     expirationDate: Date;
   };
   profileImgUrl?: string;
-  tags: string[];
   events: mongoose.Types.ObjectId[];
+  programs: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedUserData extends UserData {
   _id: mongoose.Types.ObjectId;
   createdAt: Date;
   updatedAt: Date;
+}
+
+export interface QueriedUserDTO
+  extends Omit<QueriedUserData, 'programs' | 'events'> {
+  events: QueriedVolunteerEventData[];
+  programs: QueriedVolunteerProgramData[];
 }
 
 export interface AdminData {
@@ -71,14 +77,18 @@ export interface VolunteerEventData {
   tags: mongoose.Types.ObjectId[];
 }
 
-export interface QueriedVolunteerEventData
-  extends Omit<VolunteerEventData, 'program' | 'volunteers' | 'tags'> {
+export interface QueriedVolunteerEventData extends VolunteerEventData {
   _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// Contains populated users, program, tags
+export interface QueriedVolunteerEventDTO
+  extends Omit<QueriedVolunteerEventData, 'program' | 'volunteers' | 'tags'> {
   program: QueriedTagData;
   volunteers: QueriedUserData[];
   tags: QueriedTagData[];
-  createdAt: Date;
-  updatedAt: Date;
 }
 
 export interface VolunteerEventLocation {
@@ -139,4 +149,20 @@ export interface TagData {
 
 export interface QueriedTagData extends TagData {
   _id: mongoose.Types.ObjectId;
+}
+
+// --------------------- Program ----------------------
+export interface VolunteerProgramData {
+  name: string;
+  description: string;
+  events: mongoose.Types.ObjectId[];
+}
+
+export interface QueriedVolunteerProgramData extends VolunteerProgramData {
+  _id: mongoose.Types.ObjectId;
+}
+
+export interface QueriedVolunteerProgramDTO
+  extends Omit<VolunteerProgramData, 'events'> {
+  events: QueriedVolunteerEventData[];
 }

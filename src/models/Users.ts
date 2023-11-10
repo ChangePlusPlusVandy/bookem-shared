@@ -32,12 +32,6 @@ const UserSchema = new mongoose.Schema<UserData>(
     profileImgUrl: { type: String },
 
     /**
-     * Contains the tags of the events (no duplicates)
-     * e.g. ['RIF', 'RFR']
-     */
-    tags: [{ type: String, required: true }],
-
-    /**
      * Contains the _ids of the events the user has signed up for
      * e.g. [
      *  '5f9f5b9b0e1c9c0b3c8b4b5a',
@@ -48,6 +42,12 @@ const UserSchema = new mongoose.Schema<UserData>(
       {
         type: mongoose.Types.ObjectId,
         ref: 'VolunteerEvents',
+      },
+    ],
+    programs: [
+      {
+        type: mongoose.Types.ObjectId,
+        ref: 'VolunteerPrograms',
       },
     ],
   },
