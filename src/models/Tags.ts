@@ -5,6 +5,12 @@ import { TagData } from '../types/database';
 const TagSchema = new mongoose.Schema<TagData>(
   {
     tagName: { type: String, required: true },
+    events: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'VolunteerEvent',
+      },
+    ],
   },
   {
     collection: 'tags',

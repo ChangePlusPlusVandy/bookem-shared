@@ -151,6 +151,7 @@ export interface QueriedVolunteerLogData extends VolunteerLogData {
 // ----------------------- Tag -----------------------
 export interface TagData {
   tagName: string;
+  events: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedTagData extends TagData {
