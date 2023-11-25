@@ -19,12 +19,6 @@ const VolunteerProgramSchema = new mongoose.Schema<VolunteerProgramData>(
         ref: 'VolunteerEvents',
       },
     ],
-    volunteers: [
-      {
-        type: mongoose.Types.ObjectId,
-        ref: 'Users',
-      },
-    ],
   },
 
   {

@@ -32,7 +32,6 @@ export interface UserData {
   };
   profileImgUrl?: string;
   events: mongoose.Types.ObjectId[];
-  programs: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedUserData extends UserData {
@@ -163,7 +162,6 @@ export interface VolunteerProgramData {
   name: string;
   description?: string;
   events: mongoose.Types.ObjectId[];
-  volunteers: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {
