@@ -15,6 +15,10 @@ Directly under the src directory, create a .env.local file and set your MongoDB 
 MONGODB_URI="[your MongoDB URI goes here]"
 # The environment we’re running in (development, staging, production)
 NODE_ENV="development"
+
+# ------------ Test Account ------------
+TEST_EMAIL="test_user@bookem.org"
+TEST_USER_PASSWD="[test user password goes here]"
 ```
 
 ## install ts-node globally
