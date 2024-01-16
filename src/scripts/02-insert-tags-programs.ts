@@ -1,13 +1,13 @@
-import dbConnect from './dbConnectForScript';
 import Tags from '../models/Tags';
 import VolunteerPrograms from '../models/VolunteerPrograms';
 import { INSERTED_PROGRAMS, INSERTED_TAGS } from './constants';
 import { generateProgram, generateTag } from './helper-functions';
+import scriptDbConnect from './dbConnectForScript';
 
 async function main() {
   try {
     // Connect to the database
-    await dbConnect();
+    await scriptDbConnect();
 
     // TODO:
     // delete all tags

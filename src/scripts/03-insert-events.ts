@@ -1,14 +1,14 @@
-import dbConnect from './dbConnectForScript';
 import VolunteerEvents from '../models/VolunteerEvents';
 import { fillTagEvents, generateEvent } from './helper-functions';
 import Tags from '../models/Tags';
 import VolunteerPrograms from '../models/VolunteerPrograms';
 import { QueriedTagData, QueriedVolunteerProgramData } from '../types/database';
+import scriptDbConnect from './dbConnectForScript';
 
 async function main() {
   try {
     // Connect to the database
-    await dbConnect();
+    await scriptDbConnect();
 
     // delete all events
     await VolunteerEvents.deleteMany({});

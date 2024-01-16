@@ -1,12 +1,12 @@
-import dbConnect from './dbConnectForScript';
 import Admins from '../models/Admins';
 import Users from '../models/Users';
 import { generateAdmin, generateUser } from './helper-functions';
+import scriptDbConnect from './dbConnectForScript';
 
 async function main() {
   try {
     // Connect to the database
-    await dbConnect();
+    await scriptDbConnect();
 
     // Delete all users and admins
     await Users.deleteMany({});
