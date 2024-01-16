@@ -2,7 +2,7 @@
 // note: this differs from normal dbConnect.ts because we don't need to cache the connection
 
 import mongoose from 'mongoose';
-// use dotenv to read .env vars into Node. Otherwise, the env vars will not be loaded 
+// use dotenv to read .env vars into Node. Otherwise, the env vars will not be loaded
 // when we run this script with ts-node. (because it is different from running the whole app with npm start, which will load the env vars automatically)
 require('dotenv').config({ path: '../.env.local' });
 
@@ -15,14 +15,13 @@ if (!MONGODB_URI) {
   );
 }
 
-
 async function scriptDbConnect() {
   // Directly return the connection. Since this is a one-off script, we don't need to cache the connection
-    const opts = {
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      bufferCommands: false,
-    };
+  const opts = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    bufferCommands: false,
+  };
   return mongoose.connect(MONGODB_URI, opts);
 }
 

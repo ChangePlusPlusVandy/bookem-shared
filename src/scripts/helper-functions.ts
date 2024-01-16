@@ -9,18 +9,13 @@ import {
   VolunteerProgramData,
 } from '../types/database';
 import { AdminData, UserData } from '../types/database';
-import {
-  ETHNICITY,
-  EVENTS,
-  GENDERS,
-  SOURCES,
-} from './constants';
+import { ETHNICITY, EVENTS, GENDERS, SOURCES } from './constants';
 import Tags from '../models/Tags';
 
 const generatePhone = (): string => {
-  const phone = `(${faker.random.numeric(3)}) ${faker.random.numeric(
+  const phone = `(${faker.string.numeric(3)}) ${faker.string.numeric(
     3
-  )} ${faker.random.numeric(4)}`;
+  )} ${faker.string.numeric(4)}`;
   return phone;
 };
 
@@ -36,15 +31,15 @@ export const generateUser = async ({
   email,
   password: await hash(process.env.TEST_USER_PASSWD || '', 12),
   phone: generatePhone(),
-  address: faker.address.streetAddress(),
+  address: faker.location.streetAddress(),
   birthday: faker.date.past().toISOString(),
-  emergencyName: faker.name.firstName(),
+  emergencyName: faker.person.firstName(),
   emergencyPhone: generatePhone(),
-  emergencyRelationship: faker.name.jobTitle(),
+  emergencyRelationship: faker.person.jobTitle(),
   members: [],
   volunteerReason: faker.lorem.paragraph(),
-  occupation: faker.name.jobType(),
-  occupationTitle: faker.name.jobTitle(),
+  occupation: faker.person.jobType(),
+  occupationTitle: faker.person.jobTitle(),
   occupationOrg: faker.company.name(),
   joinNewsletter: true,
   sourceHeardFrom: faker.helpers.arrayElement(SOURCES),
@@ -112,10 +107,10 @@ export const generateEvent = (
     endDate,
     maxSpot: faker.datatype.number({ min: 5, max: 100 }),
     location: {
-      city: faker.address.city(),
-      state: faker.address.state(),
-      street: faker.address.streetAddress(),
-      zip: parseInt(faker.address.zipCode()),
+      city: faker.location.city(),
+      state: faker.location.state(),
+      street: faker.location.streetAddress(),
+      zip: parseInt(faker.location.zipCode()),
     },
     phone: generatePhone(),
     email: faker.internet.email(),
