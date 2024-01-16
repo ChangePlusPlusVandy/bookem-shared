@@ -9,7 +9,6 @@ async function main() {
     // Connect to the database
     await scriptDbConnect();
 
-    // TODO:
     // delete all tags
     await Tags.deleteMany({});
 
