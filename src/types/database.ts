@@ -110,7 +110,7 @@ export interface VolunteerEventLocation {
 
 // ----------------------- Volunteer Application -----------------------
 export interface VolunteerApplicationData {
-  questions: ApplicationQuestion[];
+  questions: ApplicationQuestionData[];
   responses: ApplicationResponseData[]
 }
 
@@ -122,7 +122,9 @@ export interface ApplicationResponseData {
   submittedAt: Date;
 }
 
-export interface ApplicationQuestion {
+export interface ApplicationQuestionData {
+  // sub document needs to have ids since its not auto generated.
+  _id: mongoose.Types.ObjectId;
   type: ApplicationQuestionType;
   title: String;
   choices?: String[];
