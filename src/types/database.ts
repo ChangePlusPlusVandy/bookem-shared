@@ -130,9 +130,8 @@ export interface ApplicationQuestion {
 
 export interface ApplicationAnswer {
   questionId: mongoose.Types.ObjectId;
-  // the text of the response. In the case of multiple choice, it's the text of the choice
-  text: String;
-  choices?: number[];
+  // the text of the response. In the case of text question or choice, the array will have only one element
+  text: String[];
 }
 
 export enum ApplicationQuestionType {
