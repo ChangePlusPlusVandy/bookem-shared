@@ -90,11 +90,11 @@ export const generateEvent = (
   // get the start and end dates
   let startDate, endDate;
   if (chosenEvent.isMultipleDays) {
-    startDate = faker.date.between(
-      '2022-01-01T00:00:00.000Z',
-      '2025-01-01T00:00:00.000Z'
-    );
-    endDate = faker.date.future(1, startDate);
+    startDate = faker.date.between({
+      from: '2022-01-01T00:00:00.000Z',
+      to: '2025-01-01T00:00:00.000Z',
+    });
+    endDate = faker.date.future({ years: 1, refDate: startDate });
   } else {
     startDate = new Date();
     endDate = startDate;
@@ -105,7 +105,7 @@ export const generateEvent = (
     description: faker.lorem.paragraph(),
     startDate,
     endDate,
-    maxSpot: faker.datatype.number({ min: 5, max: 100 }),
+    maxSpot: faker.number.int({ min: 5, max: 100 }),
     location: {
       city: faker.location.city(),
       state: faker.location.state(),
