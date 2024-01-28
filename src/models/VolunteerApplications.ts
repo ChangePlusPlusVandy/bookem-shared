@@ -1,26 +1,50 @@
 import mongoose from 'mongoose';
-import { VolunteerApplicationData } from '../types/database';
+import { 
+  ApplicationQuestionData, 
+  VolunteerApplicationData 
+} from '../types/database';
+import ApplicationResponse from './ApplicationResponse';
+
+const ApplicationQuestionSchema = 
+  new mongoose.Schema<ApplicationQuestionData>(
+    {
+      // _id: mongoose.Schema.Types.ObjectId,
+      type: {
+        type: String,
+        required: true
+      },
+
+      title: {
+        type: String,
+        required: true
+      },
+
+      // choices for multiple choices or checkbox
+      choices: [
+        {
+        type: String,
+        required: false
+        }
+      ]
+    }
+  )
 
 // VolunteerApplicationSchema describes what our documents should look like in our VolunteerApplication collections
 const VolunteerApplicationSchema =
   new mongoose.Schema<VolunteerApplicationData>(
     {
-      // the user who applied
-      userId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User',
-        required: true,
-      },
-      // the event the user applied for
+      // questions in the application
+      questions: [ApplicationQuestionSchema],
       eventId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Event',
-        required: true,
+        ref: "VolunteerEvents"
       },
-      // the form data the user submitted
-      formData: { type: mongoose.Schema.Types.Mixed, required: true },
-      // the status of the application
-      status: { type: String },
+      responses: [
+        {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'ApplicationResponse',
+        },
+      ],
     },
     {
       timestamps: {

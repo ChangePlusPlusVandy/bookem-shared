@@ -1,15 +1,14 @@
 import mongoose from 'mongoose';
 import { ApplicationResponseData, ApplicationAnswer } from '../types/database';
 
-const ApplicationAnswerSchema = new mongoose.Schema<ApplicationAnswer>(
-  {
-    questionId: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "ApplicationQuestion"
-    },
-    text: [String]
-  }
-)
+const ApplicationAnswerSchema = new mongoose.Schema<ApplicationAnswer>({
+  questionId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'ApplicationQuestion',
+    required: true,
+  },
+  text: [String],
+});
 
 // VolunteerApplicationSchema describes what our documents should look like in our VolunteerApplication collections
 const ApplicationResponseSchema = new mongoose.Schema<ApplicationResponseData>(
@@ -28,7 +27,10 @@ const ApplicationResponseSchema = new mongoose.Schema<ApplicationResponseData>(
       required: true,
     },
     // the status of the application
-    status: { type: String },
+    status: {
+      type: String,
+      required: true,
+    },
     // answer to the application questions
     answers: [ApplicationAnswerSchema],
   },
@@ -36,7 +38,7 @@ const ApplicationResponseSchema = new mongoose.Schema<ApplicationResponseData>(
     timestamps: {
       createdAt: 'createdAt',
     },
-    collection: 'volunteerApplications',
+    collection: 'applicationResponses',
   }
 );
 

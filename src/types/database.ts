@@ -80,7 +80,7 @@ export interface VolunteerEventData {
   requireApplication: boolean;
   volunteers: mongoose.Types.ObjectId[];
   tags: mongoose.Types.ObjectId[];
-  application?: mongoose.Types.ObjectId;
+  applicationId?: mongoose.Types.ObjectId;
 }
 
 export interface QueriedVolunteerEventData extends VolunteerEventData {
@@ -111,7 +111,8 @@ export interface VolunteerEventLocation {
 // ----------------------- Volunteer Application -----------------------
 export interface VolunteerApplicationData {
   questions: ApplicationQuestionData[];
-  responses: ApplicationResponseData[]
+  responses: ApplicationResponseData[];
+  eventId: mongoose.Types.ObjectId
 }
 
 export interface ApplicationResponseData {
