@@ -115,12 +115,30 @@ export interface VolunteerApplicationData {
   eventId: mongoose.Types.ObjectId;
 }
 
+export interface QueriedVolunteerApplicationData
+  extends VolunteerApplicationData {
+  _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// For User Portal, don't want to send other users' responses
+export interface LimitedVolunteerApplicationData
+  extends Omit<QueriedVolunteerApplicationData, 'responses'> {}
+
 export interface ApplicationResponseData {
   userId: mongoose.Types.ObjectId;
   eventId: mongoose.Types.ObjectId;
   status: ApplicationStatus;
   answers: ApplicationAnswer[];
   submittedAt: Date;
+}
+
+export interface QueriedApplicationResponseData
+  extends ApplicationResponseData {
+  _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface ApplicationQuestionData {
