@@ -1,33 +1,30 @@
 import mongoose from 'mongoose';
-import { 
-  ApplicationQuestionData, 
-  VolunteerApplicationData 
+import {
+  ApplicationQuestionData,
+  VolunteerApplicationData,
 } from '../types/database';
 import ApplicationResponse from './ApplicationResponse';
 
-const ApplicationQuestionSchema = 
-  new mongoose.Schema<ApplicationQuestionData>(
+const ApplicationQuestionSchema = new mongoose.Schema<ApplicationQuestionData>({
+  // _id: mongoose.Schema.Types.ObjectId,
+  type: {
+    type: String,
+    required: true,
+  },
+
+  title: {
+    type: String,
+    required: true,
+  },
+
+  // choices for multiple choices or checkbox
+  choices: [
     {
-      // _id: mongoose.Schema.Types.ObjectId,
-      type: {
-        type: String,
-        required: true
-      },
-
-      title: {
-        type: String,
-        required: true
-      },
-
-      // choices for multiple choices or checkbox
-      choices: [
-        {
-        type: String,
-        required: false
-        }
-      ]
-    }
-  )
+      type: String,
+      required: false,
+    },
+  ],
+});
 
 // VolunteerApplicationSchema describes what our documents should look like in our VolunteerApplication collections
 const VolunteerApplicationSchema =
@@ -37,7 +34,7 @@ const VolunteerApplicationSchema =
       questions: [ApplicationQuestionSchema],
       eventId: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "VolunteerEvents"
+        ref: 'VolunteerEvents',
       },
       responses: [
         {

@@ -51,10 +51,10 @@ async function main() {
     const updatedEvent = await VolunteerEvents.findOneAndUpdate(
       { _id: savedApp.eventId },
       { applicationId: savedApp._id },
-      {new: true}
+      { new: true }
     );
 
-    console.log(`updated event ${updatedEvent}`)
+    console.log(`updated event ${updatedEvent}`);
 
     console.log('Sample volunteer application inserted successfully.');
   } catch (error) {

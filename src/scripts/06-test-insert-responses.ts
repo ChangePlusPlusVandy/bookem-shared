@@ -1,11 +1,10 @@
 import mongoose from 'mongoose';
 import ApplicationResponse from '../models/ApplicationResponse';
-import Users from '../models/Users'; 
-import Events from '../models/VolunteerEvents'; 
+import Users from '../models/Users';
+import Events from '../models/VolunteerEvents';
 import scriptDbConnect from './dbConnectForScript';
 import VolunteerApplications from '../models/VolunteerApplications';
 import { ApplicationQuestionData } from '../types/database';
-
 
 // Right now this file contains only a quick test for making sure we can insert into db with schema
 // It doesnt generate valid fake data

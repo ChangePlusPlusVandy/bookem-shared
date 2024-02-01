@@ -112,7 +112,7 @@ export interface VolunteerEventLocation {
 export interface VolunteerApplicationData {
   questions: ApplicationQuestionData[];
   responses: ApplicationResponseData[];
-  eventId: mongoose.Types.ObjectId
+  eventId: mongoose.Types.ObjectId;
 }
 
 export interface ApplicationResponseData {
@@ -139,17 +139,17 @@ export interface ApplicationAnswer {
 
 export enum ApplicationQuestionType {
   // short answer
-  Text = "text",
+  Text = 'text',
   // mutiple choice
-  Choice = "choice",
+  Choice = 'choice',
   // checkboxes. i.e. mutiple choice where you can choose several options
-  Checkboxes = "checkboxes"
+  Checkboxes = 'checkboxes',
 }
 
 export enum ApplicationStatus {
   Pending = 'pending',
   Approved = 'approved',
-  Rejected = 'rejected'
+  Rejected = 'rejected',
 }
 
 // ----------------------- Volunteer Log -----------------------
