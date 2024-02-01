@@ -80,6 +80,7 @@ export interface VolunteerEventData {
   requireApplication: boolean;
   volunteers: mongoose.Types.ObjectId[];
   tags: mongoose.Types.ObjectId[];
+  applicationId?: mongoose.Types.ObjectId;
 }
 
 export interface QueriedVolunteerEventData extends VolunteerEventData {
@@ -89,6 +90,10 @@ export interface QueriedVolunteerEventData extends VolunteerEventData {
 }
 
 // Contains populated users, program, tags
+// Omit and then re-define the program, volunteer, and tags properties
+// to be the type of VolunteerEvent after populating the program, volunteer, and tags fields
+// aka, the type for VolunteerEvents.findById(id).populate('program').populate('tags').populate('volunteers')
+
 export interface QueriedVolunteerEventDTO
   extends Omit<QueriedVolunteerEventData, 'program' | 'volunteers' | 'tags'> {
   program: QueriedVolunteerProgramData;
@@ -105,23 +110,40 @@ export interface VolunteerEventLocation {
 
 // ----------------------- Volunteer Application -----------------------
 export interface VolunteerApplicationData {
+  questions: ApplicationQuestionData[];
+  responses: ApplicationResponseData[];
+  eventId: mongoose.Types.ObjectId;
+}
+
+export interface ApplicationResponseData {
   userId: mongoose.Types.ObjectId;
   eventId: mongoose.Types.ObjectId;
-  formData: mongoose.Schema.Types.Mixed;
   status: ApplicationStatus;
+  answers: ApplicationAnswer[];
+  submittedAt: Date;
 }
 
-export interface QueriedVolunteerApplicationData
-  extends Omit<VolunteerApplicationData, 'formData'> {
+export interface ApplicationQuestionData {
+  // sub document needs to have ids since its not auto generated.
   _id: mongoose.Types.ObjectId;
-  formData: any;
-  createdAt: Date;
+  type: ApplicationQuestionType;
+  title: String;
+  choices?: String[];
 }
 
-export interface QueriedVolunteerApplicationDTO
-  extends QueriedVolunteerApplicationData {
-  user: QueriedUserData;
-  event: QueriedVolunteerEventData;
+export interface ApplicationAnswer {
+  questionId: mongoose.Types.ObjectId;
+  // the text of the response. In the case of text question or choice, the array will have only one element
+  text: String[];
+}
+
+export enum ApplicationQuestionType {
+  // short answer
+  Text = 'text',
+  // mutiple choice
+  Choice = 'choice',
+  // checkboxes. i.e. mutiple choice where you can choose several options
+  Checkboxes = 'checkboxes',
 }
 
 export enum ApplicationStatus {

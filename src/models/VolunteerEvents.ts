@@ -51,6 +51,12 @@ const VolunteerEventSchema = new mongoose.Schema<VolunteerEventData>(
         ref: 'Tag',
       },
     ],
+
+    applicationId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "VolunteerApplications",
+      required: false
+    }
   },
   {
     timestamps: {
