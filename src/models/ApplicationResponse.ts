@@ -1,5 +1,9 @@
 import mongoose from 'mongoose';
-import { ApplicationResponseData, ApplicationAnswer } from '../types/database';
+import {
+  ApplicationResponseData,
+  ApplicationAnswer,
+  ApplicationStatus,
+} from '../types/database';
 
 const ApplicationAnswerSchema = new mongoose.Schema<ApplicationAnswer>({
   questionId: {
@@ -29,6 +33,8 @@ const ApplicationResponseSchema = new mongoose.Schema<ApplicationResponseData>(
     // the status of the application
     status: {
       type: String,
+      default: ApplicationStatus.Pending,
+      enum: ApplicationStatus,
       required: true,
     },
     // answer to the application questions
