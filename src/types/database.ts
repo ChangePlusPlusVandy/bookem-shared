@@ -180,6 +180,13 @@ export interface VolunteerLogData {
   school?: string;
   teacher?: string;
   feedback?: string;
+  status: VolunteerLogStatus;
+}
+
+export enum VolunteerLogStatus {
+  Pending = 'pending',
+  Approved = 'approved',
+  Rejected = 'rejected',
 }
 
 export interface QueriedVolunteerLogData extends VolunteerLogData {

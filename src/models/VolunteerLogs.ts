@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import { VolunteerLogData } from '../types/database';
+import { VolunteerLogData, VolunteerLogStatus } from '../types/database';
 
 // VolunteerLogSchema describes what our documents should look like in our VolunteerLogs collections
 const VolunteerLogSchema = new mongoose.Schema<VolunteerLogData>(
@@ -31,6 +31,12 @@ const VolunteerLogSchema = new mongoose.Schema<VolunteerLogData>(
     school: { type: String },
     teacher: { type: String },
     feedback: { type: String },
+    status: {
+      type: String,
+      default: VolunteerLogStatus.Pending,
+      enum: VolunteerLogStatus,
+      required: true,
+    },
   },
   {
     timestamps: {
