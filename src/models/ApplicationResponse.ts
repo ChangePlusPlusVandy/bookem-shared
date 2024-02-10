@@ -27,7 +27,7 @@ const ApplicationResponseSchema = new mongoose.Schema<ApplicationResponseData>(
     // the event the user applied for
     eventId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Event',
+      ref: 'VolunteerEvent',
       required: true,
     },
     // the status of the application

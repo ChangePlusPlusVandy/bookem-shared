@@ -45,7 +45,7 @@ async function main() {
     const sampleResponse = {
       userId: dummyUser._id,
       eventId: application.eventId,
-      status: 'Submitted',
+      status: 'pending',
       answers: [
         {
           questionId: questionIds[0], // Replace with actual question ID
