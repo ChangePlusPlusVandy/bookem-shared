@@ -13,6 +13,7 @@ async function main() {
   try {
     // Connect to the database
     await scriptDbConnect();
+    await ApplicationResponse.deleteMany({});
 
     // Create or find a dummy user and event
     // Note: Replace this with your actual logic to retrieve or create a user and an event
@@ -49,6 +50,14 @@ async function main() {
       answers: [
         {
           questionId: questionIds[0], // Replace with actual question ID
+          text: ['Because I want to'],
+        },
+        {
+          questionId: questionIds[1],
+          text: ['Event Management'],
+        },
+        {
+          questionId: questionIds[2],
           text: ['Monday', 'Tuesday'],
         },
       ],

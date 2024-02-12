@@ -12,6 +12,7 @@ async function main() {
   try {
     // Connect to the database
     await scriptDbConnect();
+    await VolunteerApplications.deleteMany({});
     const dummyEvent = await Events.findOne({}); // Find the first event
 
     // Insert a sample application
