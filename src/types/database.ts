@@ -112,7 +112,6 @@ export interface VolunteerEventLocation {
 export interface VolunteerApplicationData {
   questions: ApplicationQuestionData[];
   responses: ApplicationResponseData[];
-  eventId: mongoose.Types.ObjectId;
 }
 
 export interface QueriedVolunteerApplicationData
