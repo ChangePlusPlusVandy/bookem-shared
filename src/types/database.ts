@@ -197,7 +197,6 @@ export interface QueriedVolunteerLogData extends VolunteerLogData {
 // ----------------------- Tag -----------------------
 export interface TagData {
   tagName: string;
-  events: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedTagData extends TagData {
@@ -208,7 +207,6 @@ export interface QueriedTagData extends TagData {
 export interface VolunteerProgramData {
   name: string;
   description?: string;
-  events: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {
@@ -220,5 +218,4 @@ export interface QueriedVolunteerProgramData extends VolunteerProgramData {
 export interface QueriedVolunteerProgramDTO
   extends Omit<VolunteerProgramData, 'events' | 'volunteers'> {
   events: QueriedVolunteerEventData[];
-  volunteers: QueriedUserData[];
 }
