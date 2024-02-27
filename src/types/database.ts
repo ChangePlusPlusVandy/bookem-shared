@@ -64,6 +64,7 @@ export interface QueriedAdminData extends AdminData {
 export enum AdminStatus {
   Forbidden = 'forbbiden',
   Admin = 'admin',
+  SuperAdmin = 'superadmin',
 }
 
 // ----------------------- Volunteer Event -----------------------
@@ -127,7 +128,6 @@ export interface LimitedVolunteerApplicationData
 
 export interface ApplicationResponseData {
   userId: mongoose.Types.ObjectId;
-  eventId: mongoose.Types.ObjectId;
   status: ApplicationStatus;
   answers: ApplicationAnswer[];
   submittedAt: Date;
