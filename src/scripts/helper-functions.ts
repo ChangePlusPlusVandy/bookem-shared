@@ -124,7 +124,6 @@ export const generateEvent = (
 export const generateProgram = (program: any): VolunteerProgramData => {
   return {
     name: program.name,
-    events: [],
   };
 };
 
@@ -143,7 +142,6 @@ export const fillTagEvents = async (events: any) => {
 
 export const generateTag = (tag: any): TagData => {
   return {
-    events: [],
     tagName: tag.tagName,
   };
 };
