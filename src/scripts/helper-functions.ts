@@ -58,7 +58,7 @@ export const generateAdmin = async (): Promise<AdminData> => ({
   email: 'test_admin@bookem.org',
   password: await hash(process.env.TEST_USER_PASSWD || '', 12),
   phone: '(615) 555 5555',
-  status: AdminStatus.Admin,
+  status: AdminStatus.SuperAdmin,
 });
 
 // ------------------ insert-events.ts ------------------
