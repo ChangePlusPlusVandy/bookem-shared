@@ -44,6 +44,7 @@ async function main() {
     // Create a sample application response
     const sampleResponse = {
       user: dummyUser._id,
+      event: application.event,
       status: 'pending',
       answers: [
         {

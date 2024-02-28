@@ -40,6 +40,7 @@ async function main() {
         },
       ],
       responses: [],
+      event: dummyEvent._id,
     };
 
     // Create a new volunteer application with the sample data

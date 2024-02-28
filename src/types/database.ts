@@ -113,6 +113,7 @@ export interface VolunteerEventLocation {
 export interface VolunteerApplicationData {
   questions: ApplicationQuestionData[];
   responses: ApplicationResponseData[];
+  event: mongoose.Types.ObjectId;
 }
 
 export interface QueriedVolunteerApplicationData
@@ -128,6 +129,7 @@ export interface LimitedVolunteerApplicationData
 
 export interface ApplicationResponseData {
   user: mongoose.Types.ObjectId;
+  event: mongoose.Types.ObjectId;
   status: ApplicationStatus;
   answers: ApplicationAnswer[];
   submittedAt: Date;
