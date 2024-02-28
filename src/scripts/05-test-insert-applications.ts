@@ -4,6 +4,7 @@ import scriptDbConnect from './dbConnectForScript';
 
 import Events from '../models/VolunteerEvents'; // Assuming you have an Events model
 import VolunteerEvents from '../models/VolunteerEvents';
+import { VolunteerApplicationData } from '../types/database';
 
 // Right now this file contains only a quick test for making sure we can insert into db with schema
 // It doesnt generate valid fake data'
@@ -14,7 +15,6 @@ async function main() {
     await scriptDbConnect();
     await VolunteerApplications.deleteMany({});
     const dummyEvent = await Events.findOne({}); // Find the first event
-
     // Insert a sample application
     const sampleApplication = {
       questions: [
@@ -40,7 +40,6 @@ async function main() {
         },
       ],
       responses: [],
-      eventId: dummyEvent._id,
     };
 
     // Create a new volunteer application with the sample data
@@ -50,7 +49,7 @@ async function main() {
     const savedApp = await newApplication.save();
 
     const updatedEvent = await VolunteerEvents.findOneAndUpdate(
-      { _id: savedApp.eventId },
+      { _id: dummyEvent._id },
       { applicationId: savedApp._id },
       { new: true }
     );

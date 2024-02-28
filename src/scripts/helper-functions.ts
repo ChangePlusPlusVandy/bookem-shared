@@ -58,7 +58,7 @@ export const generateAdmin = async (): Promise<AdminData> => ({
   email: 'test_admin@bookem.org',
   password: await hash(process.env.TEST_USER_PASSWD || '', 12),
   phone: '(615) 555 5555',
-  status: AdminStatus.Admin,
+  status: AdminStatus.SuperAdmin,
 });
 
 // ------------------ insert-events.ts ------------------
@@ -124,7 +124,6 @@ export const generateEvent = (
 export const generateProgram = (program: any): VolunteerProgramData => {
   return {
     name: program.name,
-    events: [],
   };
 };
 
@@ -143,7 +142,6 @@ export const fillTagEvents = async (events: any) => {
 
 export const generateTag = (tag: any): TagData => {
   return {
-    events: [],
     tagName: tag.tagName,
   };
 };

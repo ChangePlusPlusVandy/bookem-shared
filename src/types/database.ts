@@ -64,6 +64,7 @@ export interface QueriedAdminData extends AdminData {
 export enum AdminStatus {
   Forbidden = 'forbbiden',
   Admin = 'admin',
+  SuperAdmin = 'superadmin',
 }
 
 // ----------------------- Volunteer Event -----------------------
@@ -112,7 +113,6 @@ export interface VolunteerEventLocation {
 export interface VolunteerApplicationData {
   questions: ApplicationQuestionData[];
   responses: ApplicationResponseData[];
-  eventId: mongoose.Types.ObjectId;
 }
 
 export interface QueriedVolunteerApplicationData
@@ -128,7 +128,6 @@ export interface LimitedVolunteerApplicationData
 
 export interface ApplicationResponseData {
   userId: mongoose.Types.ObjectId;
-  eventId: mongoose.Types.ObjectId;
   status: ApplicationStatus;
   answers: ApplicationAnswer[];
   submittedAt: Date;
@@ -197,7 +196,6 @@ export interface QueriedVolunteerLogData extends VolunteerLogData {
 // ----------------------- Tag -----------------------
 export interface TagData {
   tagName: string;
-  events: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedTagData extends TagData {
@@ -208,7 +206,6 @@ export interface QueriedTagData extends TagData {
 export interface VolunteerProgramData {
   name: string;
   description?: string;
-  events: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {
@@ -220,5 +217,4 @@ export interface QueriedVolunteerProgramData extends VolunteerProgramData {
 export interface QueriedVolunteerProgramDTO
   extends Omit<VolunteerProgramData, 'events' | 'volunteers'> {
   events: QueriedVolunteerEventData[];
-  volunteers: QueriedUserData[];
 }
