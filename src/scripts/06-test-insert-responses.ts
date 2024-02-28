@@ -8,7 +8,6 @@ import { ApplicationQuestionData } from '../types/database';
 
 // Right now this file contains only a quick test for making sure we can insert into db with schema
 // It doesnt generate valid fake data
-
 async function main() {
   try {
     // Connect to the database
@@ -45,7 +44,6 @@ async function main() {
     // Create a sample application response
     const sampleResponse = {
       userId: dummyUser._id,
-      eventId: application.eventId,
       status: 'pending',
       answers: [
         {
