@@ -43,7 +43,7 @@ async function main() {
 
     // Create a sample application response
     const sampleResponse = {
-      userId: dummyUser._id,
+      user: dummyUser._id,
       status: 'pending',
       answers: [
         {
