@@ -127,6 +127,12 @@ export interface QueriedVolunteerApplicationData
 export interface LimitedVolunteerApplicationData
   extends Omit<QueriedVolunteerApplicationData, 'responses'> {}
 
+// For queried submitted application
+export interface SingleApplicationResponse {
+  application: LimitedVolunteerApplicationData;
+  response: QueriedApplicationResponseData;
+}
+
 export interface ApplicationResponseData {
   user: mongoose.Types.ObjectId;
   event: mongoose.Types.ObjectId;
