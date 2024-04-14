@@ -179,8 +179,8 @@ export enum ApplicationStatus {
 
 // ----------------------- Volunteer Log -----------------------
 export interface VolunteerLogData {
-  userId: mongoose.Types.ObjectId;
-  eventId: mongoose.Types.ObjectId;
+  user: mongoose.Types.ObjectId;
+  event: mongoose.Types.ObjectId;
   date: Date;
   hours: number;
   numBooks?: number;

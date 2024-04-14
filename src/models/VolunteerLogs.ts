@@ -7,7 +7,7 @@ const VolunteerLogSchema = new mongoose.Schema<VolunteerLogData>(
     /**
      * The user who logged this event
      */
-    userId: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true,
@@ -16,7 +16,7 @@ const VolunteerLogSchema = new mongoose.Schema<VolunteerLogData>(
     /**
      * The event that this log is for
      */
-    eventId: {
+    event: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'VolunteerEvent',
       required: true,
