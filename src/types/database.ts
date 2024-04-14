@@ -201,6 +201,12 @@ export interface QueriedVolunteerLogData extends VolunteerLogData {
   createdAt: Date;
 }
 
+export interface QueriedVolunteerLogDTO
+  extends Omit<QueriedVolunteerLogData, 'user' | 'event'> {
+  user: QueriedUserData;
+  event: QueriedVolunteerEventData;
+}
+
 // ----------------------- Tag -----------------------
 export interface TagData {
   tagName: string;
