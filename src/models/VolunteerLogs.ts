@@ -9,7 +9,7 @@ const VolunteerLogSchema = new mongoose.Schema<VolunteerLogData>(
      */
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
+      ref: 'Users',
       required: true,
     },
 
@@ -48,6 +48,6 @@ const VolunteerLogSchema = new mongoose.Schema<VolunteerLogData>(
 
 const VolunteerLogs =
   mongoose.models.VolunteerLog ||
-  mongoose.model<VolunteerLogData>('VolunteerLog', VolunteerLogSchema);
+  mongoose.model<VolunteerLogData>('VolunteerLogs', VolunteerLogSchema);
 
 export default VolunteerLogs;
