@@ -16,7 +16,7 @@ const VolunteerProgramSchema = new mongoose.Schema<VolunteerProgramData>(
 const VolunteerPrograms =
   mongoose.models.VolunteerProgram ||
   mongoose.model<VolunteerProgramData>(
-    'VolunteerPrograms',
+    'VolunteerProgram',
     VolunteerProgramSchema
   );
 

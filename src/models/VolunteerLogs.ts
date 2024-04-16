@@ -48,6 +48,6 @@ const VolunteerLogSchema = new mongoose.Schema<VolunteerLogData>(
 
 const VolunteerLogs =
   mongoose.models.VolunteerLog ||
-  mongoose.model<VolunteerLogData>('VolunteerLogs', VolunteerLogSchema);
+  mongoose.model<VolunteerLogData>('VolunteerLog', VolunteerLogSchema);
 
 export default VolunteerLogs;

@@ -74,6 +74,6 @@ const VolunteerEventSchema = new mongoose.Schema<VolunteerEventData>(
 
 const VolunteerEvents =
   mongoose.models.VolunteerEvent ||
-  mongoose.model<VolunteerEventData>('VolunteerEvents', VolunteerEventSchema);
+  mongoose.model<VolunteerEventData>('VolunteerEvent', VolunteerEventSchema);
 
 export default VolunteerEvents;
