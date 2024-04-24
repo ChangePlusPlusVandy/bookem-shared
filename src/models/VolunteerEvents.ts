@@ -42,7 +42,7 @@ const VolunteerEventSchema = new mongoose.Schema<VolunteerEventData>(
     volunteers: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Users',
+        ref: 'User',
       },
     ],
 

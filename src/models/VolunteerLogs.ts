@@ -9,7 +9,7 @@ const VolunteerLogSchema = new mongoose.Schema<VolunteerLogData>(
      */
     user: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Users',
+      ref: 'User',
       required: true,
     },
 
