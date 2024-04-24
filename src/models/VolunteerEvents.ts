@@ -31,6 +31,7 @@ const VolunteerEventSchema = new mongoose.Schema<VolunteerEventData>(
       default: null,
     },
 
+    // TODO: Remove this legacy field in the future
     /**
      * Whether this event requires an application
      */
@@ -57,6 +58,7 @@ const VolunteerEventSchema = new mongoose.Schema<VolunteerEventData>(
       },
     ],
 
+    // TODO: Rename this to application
     applicationId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'VolunteerApplications',
