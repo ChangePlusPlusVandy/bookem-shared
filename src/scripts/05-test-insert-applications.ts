@@ -4,9 +4,12 @@ import scriptDbConnect from './dbConnectForScript';
 
 import Events from '../models/VolunteerEvents'; // Assuming you have an Events model
 import VolunteerEvents from '../models/VolunteerEvents';
+import { ApplicationQuestionType } from '../types/database';
 
 // Right now this file contains only a quick test for making sure we can insert into db with schema
 // It doesnt generate valid fake data'
+
+
 
 async function main() {
   try {
@@ -18,12 +21,12 @@ async function main() {
     const sampleApplication = {
       questions: [
         {
-          type: 'text',
+          type: ApplicationQuestionType.Text,
           title: 'Why do you want to volunteer with us?',
           choices: null,
         },
         {
-          type: 'multiple-choice',
+          type: ApplicationQuestionType.Radiogroup,
           title: 'What areas are you interested in volunteering?',
           choices: [
             'Community Work',
@@ -33,7 +36,7 @@ async function main() {
           ],
         },
         {
-          type: 'checkbox',
+          type: ApplicationQuestionType.Checkbox,
           title: 'Which days are you available?',
           choices: ['Monday', 'Tuesday', 'Wednesday'],
         },
