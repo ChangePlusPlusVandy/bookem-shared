@@ -24,6 +24,12 @@ const ApplicationQuestionSchema = new mongoose.Schema<ApplicationQuestionData>({
       required: false,
     },
   ],
+
+  // if the question is required
+  isRequired: {
+    type: Boolean,
+    required: false,
+  },
 });
 
 // VolunteerApplicationSchema describes what our documents should look like in our VolunteerApplication collections
