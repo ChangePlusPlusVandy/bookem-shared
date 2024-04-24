@@ -24,7 +24,12 @@ const VolunteerEventSchema = new mongoose.Schema<VolunteerEventData>(
     /**
      * The program that this event is under, represented by a tag
      */
-    program: { type: mongoose.Schema.Types.ObjectId, ref: 'VolunteerProgram' },
+    program: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'VolunteerProgram',
+      required: false,
+      default: null,
+    },
 
     /**
      * Whether this event requires an application
@@ -54,9 +59,9 @@ const VolunteerEventSchema = new mongoose.Schema<VolunteerEventData>(
 
     applicationId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "VolunteerApplications",
-      required: false
-    }
+      ref: 'VolunteerApplications',
+      required: false,
+    },
   },
   {
     timestamps: {

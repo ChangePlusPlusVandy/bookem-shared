@@ -58,7 +58,7 @@ export const generateAdmin = async (): Promise<AdminData> => ({
   email: 'test_admin@bookem.org',
   password: await hash(process.env.TEST_USER_PASSWD || '', 12),
   phone: '(615) 555 5555',
-  status: AdminStatus.Admin,
+  status: AdminStatus.SuperAdmin,
 });
 
 // ------------------ insert-events.ts ------------------
@@ -90,11 +90,11 @@ export const generateEvent = (
   // get the start and end dates
   let startDate, endDate;
   if (chosenEvent.isMultipleDays) {
-    startDate = faker.date.between(
-      '2022-01-01T00:00:00.000Z',
-      '2025-01-01T00:00:00.000Z'
-    );
-    endDate = faker.date.future(1, startDate);
+    startDate = faker.date.between({
+      from: '2022-01-01T00:00:00.000Z',
+      to: '2025-01-01T00:00:00.000Z',
+    });
+    endDate = faker.date.future({ years: 1, refDate: startDate });
   } else {
     startDate = new Date();
     endDate = startDate;
@@ -105,7 +105,7 @@ export const generateEvent = (
     description: faker.lorem.paragraph(),
     startDate,
     endDate,
-    maxSpot: faker.datatype.number({ min: 5, max: 100 }),
+    maxSpot: faker.number.int({ min: 5, max: 100 }),
     location: {
       city: faker.location.city(),
       state: faker.location.state(),
@@ -124,7 +124,6 @@ export const generateEvent = (
 export const generateProgram = (program: any): VolunteerProgramData => {
   return {
     name: program.name,
-    events: [],
   };
 };
 
@@ -143,7 +142,6 @@ export const fillTagEvents = async (events: any) => {
 
 export const generateTag = (tag: any): TagData => {
   return {
-    events: [],
     tagName: tag.tagName,
   };
 };

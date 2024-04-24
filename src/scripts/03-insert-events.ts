@@ -35,13 +35,6 @@ async function main() {
     // execute the bulk operation
     await bulkEvents.execute();
 
-    // Query them back to update program
-    const events = await VolunteerEvents.find({});
-    // Update programs so that programs contain their corresponding events
-    // await fillProgramEvents(events);
-
-    await fillTagEvents(events);
-
     console.log('Success! You can terminate this script now.');
   } catch (error: any) {
     console.error('Error:', error.message);

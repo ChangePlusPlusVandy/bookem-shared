@@ -1,5 +1,9 @@
 import mongoose from 'mongoose';
-import { ApplicationResponseData, ApplicationAnswer } from '../types/database';
+import {
+  ApplicationResponseData,
+  ApplicationAnswer,
+  ApplicationStatus,
+} from '../types/database';
 
 const ApplicationAnswerSchema = new mongoose.Schema<ApplicationAnswer>({
   questionId: {
@@ -15,20 +19,21 @@ const ApplicationResponseSchema = new mongoose.Schema<ApplicationResponseData>(
   // we are not saving any application question assuming that one event can only have an unique application
   {
     // the user who applied
-    userId: {
+    user: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'User',
       required: true,
     },
-    // the event the user applied for
-    eventId: {
+    event: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'VolunteerEvent',
+      ref: 'VolunteerEvents',
       required: true,
     },
     // the status of the application
     status: {
       type: String,
+      default: ApplicationStatus.Pending,
+      enum: ApplicationStatus,
       required: true,
     },
     // answer to the application questions

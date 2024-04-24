@@ -38,9 +38,10 @@ const VolunteerApplicationSchema =
     {
       // questions in the application
       questions: [ApplicationQuestionSchema],
-      eventId: {
+      event: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'VolunteerEvents',
+        required: true,
       },
       responses: [
         {

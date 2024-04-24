@@ -15,8 +15,8 @@ async function main() {
   try {
     // Connect to the database
     await scriptDbConnect();
+    await VolunteerApplications.deleteMany({});
     const dummyEvent = await Events.findOne({}); // Find the first event
-
     // Insert a sample application
     const sampleApplication = {
       questions: [
@@ -42,7 +42,7 @@ async function main() {
         },
       ],
       responses: [],
-      eventId: dummyEvent._id,
+      event: dummyEvent._id,
     };
 
     // Create a new volunteer application with the sample data
@@ -52,7 +52,7 @@ async function main() {
     const savedApp = await newApplication.save();
 
     const updatedEvent = await VolunteerEvents.findOneAndUpdate(
-      { _id: savedApp.eventId },
+      { _id: dummyEvent._id },
       { applicationId: savedApp._id },
       { new: true }
     );

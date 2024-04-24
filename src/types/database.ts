@@ -64,6 +64,7 @@ export interface QueriedAdminData extends AdminData {
 export enum AdminStatus {
   Forbidden = 'forbbiden',
   Admin = 'admin',
+  SuperAdmin = 'superadmin',
 }
 
 // ----------------------- Volunteer Event -----------------------
@@ -76,7 +77,7 @@ export interface VolunteerEventData {
   location: VolunteerEventLocation;
   phone: string;
   email: string;
-  program: mongoose.Types.ObjectId;
+  program?: mongoose.Types.ObjectId;
   requireApplication: boolean;
   volunteers: mongoose.Types.ObjectId[];
   tags: mongoose.Types.ObjectId[];
@@ -112,15 +113,39 @@ export interface VolunteerEventLocation {
 export interface VolunteerApplicationData {
   questions: ApplicationQuestionData[];
   responses: ApplicationResponseData[];
-  eventId: mongoose.Types.ObjectId;
+  event: mongoose.Types.ObjectId;
+}
+
+export interface QueriedVolunteerApplicationData
+  extends VolunteerApplicationData {
+  _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
+}
+
+// For User Portal, don't want to send other users' responses
+export interface LimitedVolunteerApplicationData
+  extends Omit<QueriedVolunteerApplicationData, 'responses'> {}
+
+// For queried submitted application
+export interface SingleApplicationResponse {
+  application: LimitedVolunteerApplicationData;
+  response: QueriedApplicationResponseData;
 }
 
 export interface ApplicationResponseData {
-  userId: mongoose.Types.ObjectId;
-  eventId: mongoose.Types.ObjectId;
+  user: mongoose.Types.ObjectId;
+  event: mongoose.Types.ObjectId;
   status: ApplicationStatus;
   answers: ApplicationAnswer[];
   submittedAt: Date;
+}
+
+export interface QueriedApplicationResponseData
+  extends ApplicationResponseData {
+  _id: mongoose.Types.ObjectId;
+  createdAt: Date;
+  updatedAt: Date;
 }
 
 export interface ApplicationQuestionData {
@@ -155,14 +180,21 @@ export enum ApplicationStatus {
 
 // ----------------------- Volunteer Log -----------------------
 export interface VolunteerLogData {
-  userId: mongoose.Types.ObjectId;
-  eventId: mongoose.Types.ObjectId;
+  user: mongoose.Types.ObjectId;
+  event: mongoose.Types.ObjectId;
   date: Date;
   hours: number;
   numBooks?: number;
   school?: string;
   teacher?: string;
   feedback?: string;
+  status: VolunteerLogStatus;
+}
+
+export enum VolunteerLogStatus {
+  Pending = 'pending',
+  Approved = 'approved',
+  Rejected = 'rejected',
 }
 
 export interface QueriedVolunteerLogData extends VolunteerLogData {
@@ -170,10 +202,15 @@ export interface QueriedVolunteerLogData extends VolunteerLogData {
   createdAt: Date;
 }
 
+export interface QueriedVolunteerLogDTO
+  extends Omit<QueriedVolunteerLogData, 'user' | 'event'> {
+  user: QueriedUserData;
+  event: QueriedVolunteerEventData;
+}
+
 // ----------------------- Tag -----------------------
 export interface TagData {
   tagName: string;
-  events: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedTagData extends TagData {
@@ -184,7 +221,6 @@ export interface QueriedTagData extends TagData {
 export interface VolunteerProgramData {
   name: string;
   description?: string;
-  events: mongoose.Types.ObjectId[];
 }
 
 export interface QueriedVolunteerProgramData extends VolunteerProgramData {
@@ -196,5 +232,4 @@ export interface QueriedVolunteerProgramData extends VolunteerProgramData {
 export interface QueriedVolunteerProgramDTO
   extends Omit<VolunteerProgramData, 'events' | 'volunteers'> {
   events: QueriedVolunteerEventData[];
-  volunteers: QueriedUserData[];
 }

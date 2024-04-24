@@ -8,11 +8,11 @@ import { ApplicationQuestionData } from '../types/database';
 
 // Right now this file contains only a quick test for making sure we can insert into db with schema
 // It doesnt generate valid fake data
-
 async function main() {
   try {
     // Connect to the database
     await scriptDbConnect();
+    await ApplicationResponse.deleteMany({});
 
     // Create or find a dummy user and event
     // Note: Replace this with your actual logic to retrieve or create a user and an event
@@ -43,12 +43,20 @@ async function main() {
 
     // Create a sample application response
     const sampleResponse = {
-      userId: dummyUser._id,
-      eventId: application.eventId,
+      user: dummyUser._id,
+      event: application.event,
       status: 'pending',
       answers: [
         {
           questionId: questionIds[0], // Replace with actual question ID
+          text: ['Because I want to'],
+        },
+        {
+          questionId: questionIds[1],
+          text: ['Event Management'],
+        },
+        {
+          questionId: questionIds[2],
           text: ['Monday', 'Tuesday'],
         },
       ],
