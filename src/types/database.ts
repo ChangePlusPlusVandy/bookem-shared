@@ -129,6 +129,7 @@ export interface ApplicationQuestionData {
   type: ApplicationQuestionType;
   title: String;
   choices?: String[];
+  isRequired?: boolean;
 }
 
 export interface ApplicationAnswer {
@@ -141,9 +142,9 @@ export enum ApplicationQuestionType {
   // short answer
   Text = 'text',
   // mutiple choice
-  Choice = 'choice',
+  Radiogroup = 'radiogroup',
   // checkboxes. i.e. mutiple choice where you can choose several options
-  Checkboxes = 'checkboxes',
+  Checkbox = 'checkbox',
 }
 
 export enum ApplicationStatus {
