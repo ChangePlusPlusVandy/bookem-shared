@@ -49,6 +49,11 @@ const VolunteerApplicationSchema =
           ref: 'ApplicationResponse',
         },
       ],
+      published: {
+        type: Boolean,
+        required: true,
+        default: false,
+      },
     },
     {
       timestamps: {

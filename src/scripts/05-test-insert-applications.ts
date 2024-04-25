@@ -5,6 +5,7 @@ import scriptDbConnect from './dbConnectForScript';
 import Events from '../models/VolunteerEvents'; // Assuming you have an Events model
 import VolunteerEvents from '../models/VolunteerEvents';
 import { ApplicationQuestionType } from '../types/database';
+import { tr } from '@faker-js/faker';
 
 // Right now this file contains only a quick test for making sure we can insert into db with schema
 // It doesnt generate valid fake data'
@@ -43,6 +44,7 @@ async function main() {
       ],
       responses: [],
       event: dummyEvent._id,
+      published: true,
     };
 
     // Create a new volunteer application with the sample data
