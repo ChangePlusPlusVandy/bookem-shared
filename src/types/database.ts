@@ -183,6 +183,8 @@ export enum ApplicationStatus {
 export interface VolunteerLogData {
   user: mongoose.Types.ObjectId;
   event: mongoose.Types.ObjectId;
+
+  // the date when the volunteer attended the event
   date: Date;
   hours: number;
   numBooks?: number;
