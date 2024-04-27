@@ -151,7 +151,7 @@ export interface QueriedApplicationResponseData
 
 export interface ApplicationQuestionData {
   // sub document needs to have ids since its not auto generated.
-  _id: mongoose.Types.ObjectId;
+  _id?: mongoose.Types.ObjectId;
   type: ApplicationQuestionType;
   title: String;
   choices?: String[];
