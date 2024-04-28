@@ -118,6 +118,7 @@ export const generateEvent = (
     requireApplication: false,
     tags: tagIds,
     volunteers: [],
+    published: true,
   };
 };
 

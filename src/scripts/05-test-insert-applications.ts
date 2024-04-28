@@ -10,8 +10,6 @@ import { tr } from '@faker-js/faker';
 // Right now this file contains only a quick test for making sure we can insert into db with schema
 // It doesnt generate valid fake data'
 
-
-
 async function main() {
   try {
     // Connect to the database

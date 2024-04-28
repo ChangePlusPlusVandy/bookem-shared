@@ -58,11 +58,16 @@ const VolunteerEventSchema = new mongoose.Schema<VolunteerEventData>(
       },
     ],
 
-    // TODO: Rename this to application
     applicationId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'VolunteerApplications',
       required: false,
+    },
+
+    published: {
+      type: Boolean,
+      required: true,
+      default: false,
     },
   },
   {
