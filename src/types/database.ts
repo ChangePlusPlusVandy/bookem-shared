@@ -82,6 +82,7 @@ export interface VolunteerEventData {
   volunteers: mongoose.Types.ObjectId[];
   tags: mongoose.Types.ObjectId[];
   applicationId?: mongoose.Types.ObjectId;
+  published: boolean;
 }
 
 export interface QueriedVolunteerEventData extends VolunteerEventData {
@@ -114,7 +115,6 @@ export interface VolunteerApplicationData {
   questions: ApplicationQuestionData[];
   responses: ApplicationResponseData[];
   event: mongoose.Types.ObjectId;
-  published: boolean;
 }
 
 export interface QueriedVolunteerApplicationData
